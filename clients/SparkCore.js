@@ -1052,7 +1052,7 @@ SparkCore.prototype = extend(ISparkCore.prototype, EventEmitter.prototype, {
 
             if (!global.publisher.publish(isPublic, obj.name, obj.userid, obj.data, obj.ttl, obj.published_at, this.getHexCoreID())) {
                 //this core is over its limit, and that message was not sent.
-                this.sendReply("EventSlowdown", msg.getId());
+                this.sendReply("EventAck", msg.getId());
             }
             else {
                 this.sendReply("EventAck", msg.getId());
